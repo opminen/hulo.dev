@@ -1,0 +1,138 @@
+:root {
+    --elView: 0;
+    --width: 250px;
+}
+
+img {
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+}
+
+.swiper {
+    width: 1000px;
+    height: 250px;
+    margin: auto;
+    position: relative;
+}
+
+.swiper__wrapper {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.swiper__slide {
+    flex-shrink: 0;
+    width: var(--width);
+    height: 100%;
+    transition: transform .5s;
+    transform: translateX(calc(var(--elView) * var(--width) * -1));
+    object-fit: cover;
+    cursor: pointer;
+    position: relative;
+    z-index: 0;
+}
+
+.slider__content {
+    position: relative;
+    z-index: -1;
+    width: 100%;
+    height: 100%;
+}
+
+.swiper__control-button {
+    padding: 10px;
+    background-color: rgba(95, 95, 95, 0.644);
+    border: none;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+}
+
+.swiper__control-button > img:hover {
+    animation: arrow_anime 1s infinite;
+}
+
+.swiper__control-button > img {
+    width: 20px;
+    height: 20px;
+}
+
+.swiper__control-button--left {
+    border-radius: 0 10px 10px 0;
+}
+
+.swiper__control-button--left > img {
+    rotate: 180deg;
+}
+
+.swiper__control-button--right {
+    border-radius: 10px 0 0 10px;
+    right: 0;
+}
+
+.modal {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.7);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.modal__control-close {
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 10px;
+    background-color: transparent;
+    color: white;
+    border: none;
+    cursor: pointer;
+    transition: all .5s;
+}
+
+.modal__control-close:hover {
+    background-color: red;
+}
+
+.modal__control-line {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+
+.dot {
+    padding: 5px;
+    background-color: rgba(173, 173, 173, 0.6);
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.modal__content {
+    height: 90%;
+    aspect-ratio: 1;
+    margin: 10px;
+}
+
+@keyframes arrow_anime {
+    0% {
+        transform: translateX(0%);
+    }
+
+    50% {
+        transform: translateX(20%);
+    }
+
+    100% {
+        transform: translateX(0%);
+    }
+}
